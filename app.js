@@ -1,7 +1,7 @@
 App({
   d: {
     hostUrl: 'https://api.gmichaungyi.com.cn/index.php',
-    appId:"wx2aec8c9b037be39d",
+    appId:"wx05f65004f8ffcfcf",
     appKey:"ef694ee6cda3d757329055d094c74457",
     ceshiUrl:'https://api.gmichaungyi.com.cn/index.php',
   },
@@ -21,7 +21,9 @@ App({
     }else{
       //调用登录接口
       wx.login({
+        withCredentials:true,
         success: function (res) {
+          //console.log(res);
           var code = res.code;
           //get wx user simple info
           wx.getUserInfo({
@@ -31,6 +33,14 @@ App({
               //get user sessionKey
               //get sessionKey
               that.getUserSessionKey(code);
+            },
+            fail:function(res){
+              console.log(res);
+              wx.showToast({
+                title:"获取信息失败",
+                duration:2000,
+                icon:"none",
+              })
             }
           });
         }
@@ -103,6 +113,8 @@ App({
         that.globalData.userInfo['id'] = data.ID;
         that.globalData.userInfo['NickName'] = data.NickName;
         that.globalData.userInfo['HeadUrl'] = data.HeadUrl;
+        console.log("hello");
+        console.log(data.ID);
         var userId = data.ID;
         if (!userId){
           wx.showToast({

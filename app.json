@@ -30,7 +30,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "We交理商城",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": "true"
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "backgroundColor": "#fafafa",

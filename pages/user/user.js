@@ -52,6 +52,7 @@ Page( {
   loadOrderStatus:function(){
     //获取用户订单数据
     var that = this;
+    //console.log(app.d.userId)
     wx.request({
       url: app.d.ceshiUrl + '/Api/User/getorder',
       method:'post',
@@ -62,6 +63,7 @@ Page( {
         'Content-Type':  'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(res)
         //--init data        
         var status = res.data.status;
         if(status==1){
